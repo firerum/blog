@@ -17,8 +17,8 @@ const app = express();
 
 
 // Database
-/* const db = "mongodb+srv://firerum:nobles001@cluster0.ajhls.mongodb.net/FirstProject?retryWrites=true&w=majority"; */
-const db = "mongodb://localhost/Try";
+const db = "mongodb+srv://firerum:nobles001@cluster0.ajhls.mongodb.net/FirstProject?retryWrites=true&w=majority";
+/* const db = "mongodb://localhost/Try"; */
 mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
    .then((result) => {
       console.log("connected to database");
