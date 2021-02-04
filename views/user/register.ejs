@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include("../partials/head.ejs") %> <!-- Head file-->
+
+   <body>
+      <header class="banner">
+         <%- include("../partials/nav.ejs") %> <!-- Head file-->
+      </header>
+      <%- include("../partials/message.ejs") %>
+      <form action="/users/register" method="POST">
+         <div class="form-row">
+            <label for="lastname">Last Name: </label>
+            <input type="text" name="lastname" id="lastname" value="<%= typeof lastname == 'undefined' ? '' : lastname %>">
+         </div>
+         <div class="form-row">
+            <label for="firstname">First Name: </label>
+            <input type="text" name="firstname" id="firstname" value="<%= typeof firstname == 'undefined' ? '' : firstname %>">
+         </div>
+         <div class="form-row">
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" value="<%= typeof email == 'undefined' ? '' : email %>">
+         </div>
+         <div class="form-row">
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password">
+         </div>
+         <div class="form-row">
+            <label for="password2">Confirm Password: </label>
+            <input type="password" name="password2" id="password2">
+         </div>
+         <button type="submit">Sign Up</button>
+      </form>
+      <p>Have an account? <a href="/users/login">Login</a></p>
+      <%- include("../partials/footer.ejs") %> <!-- Head file-->
+   </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include("../partials/head.ejs") %>
+   
+   <body>
+      <header class="banner">
+         <%- include("../partials/nav.ejs") %> <!-- Head file-->
+      </header>
+      <a href="/dashboard/new-blog">New Blog</a>
+      <h1>Welcome to your dashboard, <%=user.firstname%></h1>
+      <p>This is your password: <%=user.password%></p>
+      <a href="/users/logout">logout</a>
+      <%- include("../partials/footer.ejs") %>
+   </body>
+</html>

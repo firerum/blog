@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include("./partials/head.ejs") %> <!-- Head file-->
+   <body>
+      <header class="banner">
+         <%- include("./partials/nav.ejs") %> <!-- navigation file -->
+      </header>
+      <div class="blog">
+         <div class="content nay">
+            <span>Title: <%= blog.title %></span>
+            <span><%= blog.body %></span>
+            <button id="trash" data-doc="<%= blog.id %>">Delete</button>
+         </div>
+      </div>
+      <%- include("./partials/footer.ejs") %> <!-- footer file -->
+
+      <!-- Delete blog function -->
+      <script>
+         const trash = document.getElementById("trash");
+         trash.addEventListener("click", e => {
+            const endpoint = `/blogs/${trash.dataset.doc}`;
+            fetch(endpoint, {
+               method: "DELETE"
+            })
+            .then((res) => res.json())
+            .then((data) => {
+               window.location.href = data.redirect;
+            })
+            .catch((err) => {
+               console.log("error encountered while trying to delete", err);
+            });
+         });
+      </script>
+   </body>
+</html>

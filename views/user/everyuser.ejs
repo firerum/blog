@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include("../partials/head.ejs") %>
+
+   <body>
+      <header class="banner">
+         <nav>
+            <ul>
+               <li><a href="/">home</a></li>
+               <li><a href="/blogs">Blogs</a></li>
+               <li><a href="/contact">contact</a></li>
+            </ul>
+         </nav>
+      </header>
+      <h1>All Bloggers</h1>
+      <p>
+         <% if(users.length > 0) { %>
+            <% users.forEach(user => { %>
+               <p class="users"><%= user.firstname %></p>
+            <% }) %>
+         <% } %>
+      <%- include("../partials/footer.ejs") %>
+   </body>
+</html>
