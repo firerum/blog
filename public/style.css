@@ -9,12 +9,13 @@
 body {
    background-color: aliceblue;
    font-family: "segoe ui", sans-serif;
-   line-height: 1.4;
+   line-height: 1.8;
    height: 100vh;
    display: flex;
    flex-direction: column;
    align-items: center;
-   text-align: center;;
+   text-align: center;
+   font-size: 0.8rem;
 }
 
 a {
@@ -23,10 +24,12 @@ a {
    padding: 0.5em;
    font-weight: 700;
    color: rgba(0, 0, 0, .75);
+   font-size: 0.9rem;
 }
 
 h1, h2, h3 {
    margin-bottom: 1rem;
+   font-size: 1.6rem;
 }
 
 p {
@@ -36,6 +39,10 @@ p {
 ul {
    list-style: none;
    padding: 1em;
+}
+
+li {
+   margin-bottom: 1rem;
 }
 
 button {
@@ -58,29 +65,135 @@ p.users {
 /* Header Section */
 .banner {
    width: 100%;
-   background-color: #eee;
+   background-color: #393f4d;
+   padding: 1em 2em;
+   color: #feda6a;
 }
 
-.banner nav {
-   width: 80%;
-   max-width: 900px;
-   margin: 0 auto;
-   background-color: #eee;
-}
-
-.banner nav > ul {
+.banner-logo {
+   position: relative;
    display: flex;
-   justify-content: space-between;
 }
 
-.banner nav > ul li:nth-of-type(5) {
-   margin-left: auto;
+.banner #toggler {
+   position: absolute;
+   top: 5px;
+   right: 0;
+   width: 30px;
+   height: 20px;
+   z-index: 2;
+   opacity: 0;
+   cursor: pointer;
+}
+
+.banner .hamburger {
+   position: absolute;
+   top: 5px;
+   right: 0;
+   width: 30px;
+   height: 30px;
+   z-index: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: transform 400ms ease;
+}
+
+.banner .hamburger::before,
+.banner .hamburger::after {
+   content: "";
+   position: absolute;
+   top: 7px;
+   left: 0;
+   width: 100%;
+   height: 3px;
+   background-color: #d4d4dc;
+   border-radius: 5px;
+   transition: transform 400ms ease;
+}
+
+.banner .hamburger::after {
+   top: 20px;
+}
+
+.banner .hamburger > div {
+   height: 3px;
+   width: 100%;
+   background-color: #d4d4dc;
+   border-radius: 5px;
+   transition: transform 500ms ease-out;
+}
+
+.banner #toggler:checked + .hamburger::before {
+   transform: rotate(40deg) translateY(8px);
+}
+
+.banner #toggler:checked + .hamburger::after {
+   transform: rotate(-40deg) translateY(-9px);
+}
+
+.banner #toggler:checked + .hamburger > div {
+   transform: scale(0);
+}
+
+.banner .main-links {
+   position: absolute;
+   top: 100%;
+   left: 0;
+   right: 0;
+   background-color: #feda6a;
+   border-radius: 10px;
+   text-align: center;
+   height: 0;
+   overflow: hidden;
+   transition: height 250ms ease;
+   z-index: 5;
+}
+
+.banner .main-links > ul {
+   padding: 1.5em;
+}
+
+.banner .main-links a {
+   color: #1d1e22;
+}
+
+.banner .main-links li:nth-of-type(5) {
+   border-bottom: 1px solid #ccc;
+   padding-bottom: 1em;
+}
+
+.banner .main-links li:last-of-type {
+   background-color: #393f4d;
+   border-radius: 5px;
+   margin-top: 1rem;
+   padding: 0.3em;
+}
+
+.banner .main-links li:last-of-type a {
+   color: #eaeaef;
+}
+
+.banner #toggler:checked ~ .main-links {
+   height: 350px;
 }
 
 
 /* Main Section */
 section {
    max-width: 900px;
+   padding: 2em;
+   text-align: left;
+}
+
+section.about h1 {
+   text-align: center;
+   font-size: 1.8rem;
+   background-color: beige;
+}
+
+.about h4 {
+   margin-bottom: 1rem;
 }
 
 .blog {
@@ -123,6 +236,10 @@ section {
    margin-top: 1rem;
    width: 50%;
 }
+
+section#dash > h3 {
+   text-align: left;
+} 
 
 form {
    width: 60%;
