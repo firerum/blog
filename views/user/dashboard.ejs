@@ -7,11 +7,12 @@
          <%- include("../partials/nav.ejs") %> <!-- Head file-->
       </header>
       <section id="dash">
-         <span>Welcome, </span>
-         <h3><%=user.firstname%></h3>
+         <div class="wrapper">
+            <p>Welcome,</p>
+            <h3><%=user.firstname%></h3>
+         </div>
          <a href="/dashboard/new-blog">New Blog</a>
-         
-         <a href="/users/logout">logout</a>
+         <a href="/users/logout">log out</a>
       </section>
       <%- include("../partials/footer.ejs") %>
    </body>

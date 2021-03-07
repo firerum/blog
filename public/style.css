@@ -1,3 +1,9 @@
+:root {
+   --pry-radius: 5px;
+   --pry-text-color: #eaeaef;
+   --debugger: 1px solid red;
+}
+
 *,
 *::before,
 *::after {
@@ -6,16 +12,20 @@
    margin: 0;
 }
 
+html {
+   height: 100%;
+}
+
 body {
-   background-color: aliceblue;
+   background-color: #fff;
    font-family: "segoe ui", sans-serif;
    line-height: 1.8;
-   height: 100vh;
+   height: 100%;
    display: flex;
    flex-direction: column;
    align-items: center;
    text-align: center;
-   font-size: 0.8rem;
+   font-size: 0.9rem;
 }
 
 a {
@@ -34,6 +44,10 @@ h1, h2, h3 {
 
 p {
    margin-bottom: 0.5rem;
+}
+
+img {
+   max-width: 100%;
 }
 
 ul {
@@ -186,14 +200,66 @@ section {
    text-align: left;
 }
 
-section.about h1 {
+.about {
+   padding-top: 0;
+}
+
+.about h1 {
    text-align: center;
-   font-size: 1.8rem;
-   background-color: beige;
+   font-size: 1.9rem;
+   background-image: url("./images/perry-grone-lbLgFFlADrY-unsplash.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   padding: 4em 0;
+   margin: 0 -1em;
+   color: #eaeaef;
+   position: relative;
+}
+
+.about > .intro {
+   padding-top: 3em;
 }
 
 .about h4 {
    margin-bottom: 1rem;
+}
+
+.about > .privacy {
+   padding: 2em 2em;
+   margin: 0 -2em; 
+   font-weight: 700;
+}
+
+.about > div:nth-of-type(3) {
+   background-color: #00303f;
+   padding: 2em 2em;
+   margin: 0 -2em;
+   color: #eaeaef;
+}
+
+.about .benefits {
+   position: relative;
+}
+
+.about .benefits > li {
+   position: relative;
+   padding-left: 15px
+}
+
+.about .benefits > li:before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: -15px;
+   height: 20px;
+   width: 8px;
+   border-radius: 5px;
+   background-color: #feda6a;
+}
+
+.about .benefits > li:after {
+   content: "";
+   position: absolute;
 }
 
 .blog {
@@ -210,7 +276,7 @@ section.about h1 {
 .blog .content {
    display: flex;
    flex-direction: column;
-   background-color: #fff;
+   background-color: var(--pry-text-color);
    margin-bottom: 1rem;
    padding: 1em;
    border-radius: 3px;
@@ -237,9 +303,59 @@ section.about h1 {
    width: 50%;
 }
 
-section#dash > h3 {
-   text-align: left;
+section#dash {
+   margin-right: auto;
+}
+
+#dash > .wrapper {
+   margin-bottom: 4rem;
+}
+
+#dash > .wrapper > p {
+   font-size: 1.2rem;
+   margin-right: 10px;
 } 
+
+#dash > a {
+   outline: 1px solid currentColor;
+   margin-right: 10px;
+}
+
+#dash > a:hover,
+#dash > a:focus {
+   background-color:darkkhaki;
+}
+
+.partners h2 {
+   margin-bottom: 2rem;
+}
+
+.partners .logos {
+   display: flex;
+   justify-content: center;
+   font-size: 3rem;
+   gap: 40px;
+   color: #fff;
+}
+
+.partners .logos i {
+   padding: 0.2em;
+   border-radius: 5px;
+
+}
+
+.partners .logos i:first-child {
+   background-color: red;
+}
+
+.partners .logos i:nth-child(2) {
+   background-color: rgb(46, 46, 124);
+}
+
+.partners .logos i:nth-child(3) {
+   background-color: rgb(27, 27, 87);
+}
+
 
 form {
    width: 60%;
@@ -299,6 +415,70 @@ footer {
    color: white;
    width: 100%;
    padding: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+   body {
+      font-size: 1rem;
+   }
+
+   .banner {
+     padding: 1em 8em; 
+
+   }
+
+   .banner-logo {
+      justify-content: space-between;
+   }
+
+   .banner-logo h1 {
+      margin-bottom: 0;
+   }
+
+   .banner #toggler,
+   .banner .hamburger {
+      display: none;
+   }
+
+   .banner .main-links {
+     position: initial;
+     height: inherit;
+     background-color: transparent;
+     border-radius: 0;
+     width: 70%;
+   }
+
+   .banner .main-links > ul {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+   }
+
+   .banner .main-links li {
+      margin: 0;
+      padding: 0;
+   }
+
+   .banner .main-links li:nth-of-type(5) {
+      padding: 0;
+      border-bottom: none;
+   }
+
+   .banner .main-links li:nth-of-type(6) {
+      margin-left: auto;
+   }
+
+   .banner .main-links li:last-of-type {
+      border-radius: none;
+      margin: 0;
+      padding: 0;
+   }
+
+   .banner .main-links a {
+      color: #eaeaef;
+   }
+     
 }
 
 

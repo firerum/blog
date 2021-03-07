@@ -10,15 +10,15 @@
       <form action="/users/register" method="POST">
          <div class="form-row">
             <label for="lastname">Last Name: </label>
-            <input type="text" name="lastname" id="lastname" value="<%= typeof lastname == 'undefined' ? '' : lastname %>">
+            <input type="text" name="lastname" id="lastname" value="<%= typeof lastname == 'undefined' ? '' : lastname %>" placeholder="doe">
          </div>
          <div class="form-row">
             <label for="firstname">First Name: </label>
-            <input type="text" name="firstname" id="firstname" value="<%= typeof firstname == 'undefined' ? '' : firstname %>">
+            <input type="text" name="firstname" id="firstname" value="<%= typeof firstname == 'undefined' ? '' : firstname %>" placeholder="john">
          </div>
          <div class="form-row">
             <label for="email">Email: </label>
-            <input type="email" name="email" id="email" value="<%= typeof email == 'undefined' ? '' : email %>">
+            <input type="email" name="email" id="email" value="<%= typeof email == 'undefined' ? '' : email %>" placeholder="ex: johndoe@yahoo.com">
          </div>
          <div class="form-row">
             <label for="password">Password: </label>
