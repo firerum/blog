@@ -170,6 +170,23 @@ p.users {
 
 .banner .main-links a {
    color: #1d1e22;
+   position: relative;
+}
+
+.banner .main-links a::before {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 2px;
+   border-radius: var(--pry-radius);
+   transform: scale(0);
+   background-color: #393f4d;
+   transition: all 340ms ease;
+}
+
+.banner .main-links a:hover::before {
+   transform: scale(1);
 }
 
 .banner .main-links li:nth-of-type(5) {
@@ -453,6 +470,7 @@ footer {
       padding: 0;
       margin: 0;
       width: 100%;
+      gap: 15px;
    }
 
    .banner .main-links li {
@@ -477,6 +495,10 @@ footer {
 
    .banner .main-links a {
       color: #eaeaef;
+   }
+
+   .banner .main-links a::before {
+      background-color: #feda6a;
    }
      
 }
