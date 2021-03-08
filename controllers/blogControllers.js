@@ -3,13 +3,13 @@ const User = require("../models/User");
 
 // get all blogs 
 const blog_all = (req, res) => {
-   Blog.find().sort({createdAt: -1}) // sort and list the blogs from the latest
-   .then((result) => {
-      res.render("blogs", {title: "All Blogs", blogs: result});
-   })
-   .catch((err) => {
-      console.log("couldn't fetch blogs from the database", err);
-   });
+   Blog.find().sort({createdAt: -1}) // sort and list the blogs from the newest
+      .then((result) => {
+         res.render("blogs", {title: "All Blogs", blogs: result});  
+      })
+      .catch((err) => {
+         console.log("couldn't fetch blogs from the database", err);
+      });
 };
 
 // get single blog details
