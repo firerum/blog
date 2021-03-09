@@ -17,8 +17,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // Database
-const db = "mongodb+srv://firerum:nobles001@cluster0.ajhls.mongodb.net/FirstProject?retryWrites=true&w=majority";
-/* const db = "mongodb://localhost/Try"; */
+/* const db = "mongodb+srv://firerum:nobles001@cluster0.ajhls.mongodb.net/FirstProject?retryWrites=true&w=majority"; */
+const db = "mongodb://localhost/Try";
 mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
    .then((result) => {
       console.log("connected to database");
@@ -43,16 +43,16 @@ app.use(session({  // for the express session
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-/* app.use(flash()); */
+app.use(flash());
 
 
 // global variables - custom middlewares
-/* app.use((req, res, next) => {
+app.use((req, res, next) => {
    res.locals.success_msg = req.flash("success_msg");
    res.locals.error_msg = req.flash("error_msg");
    res.locals.error = req.flash("error");
    next();
-}); */
+});
 
 // Get Requests
 app.get("/", (req, res) => {

@@ -88,6 +88,7 @@ const save_new_user = (req, res) => {
                // save the user to the database with the hashed password
                freshUser.save()
                .then(user => {
+                  req.flash("success_msg", "Registration successful");
                   res.redirect("/users/login");
                })
                .catch(err => {
@@ -104,7 +105,8 @@ const save_new_user = (req, res) => {
 const log_user_in = (req, res, next) => {
    passport.authenticate("local", {
       successRedirect: "/users/dashboard",
-      failureRedirect: "/users/login"
+      failureRedirect: "/users/login",
+      failureFlash: true
    })(req, res, next);
 };
 

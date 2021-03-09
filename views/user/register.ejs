@@ -6,8 +6,9 @@
       <header class="banner">
          <%- include("../partials/nav.ejs") %> <!-- Head file-->
       </header>
-      <%- include("../partials/message.ejs") %>
+      
       <form action="/users/register" method="POST">
+         <p><%- include("../partials/message.ejs") %></p>
          <div class="form-row">
             <label for="lastname">Last Name: </label>
             <input type="text" name="lastname" id="lastname" value="<%= typeof lastname == 'undefined' ? '' : lastname %>" placeholder="doe">

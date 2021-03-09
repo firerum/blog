@@ -7,8 +7,8 @@
          <%- include("../partials/nav.ejs") %> <!-- Head file-->
       </header>
       <h1>Login to your account</h1>
-      <%- include("../partials/message.ejs") %>
       <form action="/users/login" method="POST">
+         <p><%- include("../partials/message.ejs") %></p>
          <div class="form-row">
             <label for="email">Email: </label>
             <input type="email" name="email" id="email" value="<%= typeof email == 'undefined' ? '' : email %>" placeholder="ex: johndoe@yahoo.com" required>
