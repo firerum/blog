@@ -10,9 +10,10 @@
             <% blogs.forEach(blog => { %> 
          <a href="/blogs/<%=blog.id %>" class="content-wrapper">
             <div class="content">
-               <span>Title: <%= blog.title %></span>
-               <span><%= blog.snippet %>...</span>
-               <span><%= blog.createdAt.toLocaleDateString() %>...</span>
+               <p><span class="heading">title:</span> <span><%= blog.title %></span></p>
+               <p><span class="heading">description:</span> <span><%= blog.snippet %>...</span></p>
+               <p><span class="heading">author:</span> <span><%= blog.author.firstname %></span></p>
+               <p class="heading"><%= blog.createdAt.toLocaleDateString() %></p>
             </div>
          </a>
          <% }) %>

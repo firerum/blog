@@ -1,9 +1,10 @@
+const { populate } = require("../models/blog");
 const Blog = require("../models/blog");
 const User = require("../models/User");
 
 // get all blogs 
 const blog_all = (req, res) => {
-   Blog.find().sort({createdAt: -1}) // sort and list the blogs from the newest
+   Blog.find().populate("author").sort({createdAt: -1}) // sort and list the blogs from the newest
       .then((result) => {
          res.render("blogs", {title: "All Blogs", blogs: result});  
       })
