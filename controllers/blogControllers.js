@@ -1,9 +1,10 @@
-const { populate } = require("../models/blog");
+/* const { populate } = require("../models/blog"); */
 const Blog = require("../models/blog");
 const User = require("../models/User");
 
 // get all blogs 
 const blog_all = (req, res) => {
+   // the populate() method turns any type that is an "ObjectId" into a real object data
    Blog.find().populate("author").sort({createdAt: -1}) // sort and list the blogs from the newest
       .then((result) => {
          res.render("blogs", {title: "All Blogs", blogs: result});  
