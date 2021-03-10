@@ -4,11 +4,14 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
+const helmet = require("helmet");
 const { ensureAuthenticate } = require("./config/ensureAuth");
 const blogRoutes = require("./routes/blogRoutes");
 const userRoutes = require("./routes/userRoutes");
+const dotenv = require("dotenv");
 require("./config/passport")(passport);
 
+dotenv.config({path: "./config/config.env"});
 
 // PORT 
 const port = process.env.PORT || 3000;
@@ -17,9 +20,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // Database
-const db = "mongodb+srv://firerum:nobles001@cluster0.ajhls.mongodb.net/FirstProject?retryWrites=true&w=majority";
-/* const db = "mongodb://localhost/Try"; */
-mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
+const db = process.env.MONGODB_URI || "mongodb://localhost/Try";
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
    .then((result) => {
       console.log("connected to database");
       // Listen at port 3000
@@ -28,11 +30,12 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
       });
    })
    .catch((err) => {
-      console.log("couldnt coonect to the database for some reason: ", err);
+      console.log("couldnt connect to the database for some reason: ", err);
    });
 
 app.set("view engine", "ejs");
 
+app.use(helmet());
 app.use(express.static("public")); // Load my external files like stylesheet
 app.use(morgan("dev")); // Track the url routes
 app.use(express.urlencoded({extended: true})); // translate the post request to usable file
