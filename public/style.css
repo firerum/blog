@@ -34,7 +34,6 @@ a {
    padding: 0.5em;
    font-weight: 700;
    color: rgba(0, 0, 0, .75);
-   font-size: 0.9rem;
 }
 
 h1, h2, h3 {
@@ -436,14 +435,10 @@ footer {
    padding: 1em;
 }
 
-@media only screen and (min-width: 600px) {
-   body {
-      font-size: 1rem;
-   }
-
+@media only screen and (min-width: 502px) {
    .banner {
-     padding: 1em 8em; 
-
+     padding: 1em 0; 
+     font-size: 0.9rem;
    }
 
    .banner-logo {
@@ -464,7 +459,7 @@ footer {
      height: inherit;
      background-color: transparent;
      border-radius: 0;
-     width: 70%;
+     width: 100%;
    }
 
    .banner .main-links > ul {
@@ -472,12 +467,17 @@ footer {
       padding: 0;
       margin: 0;
       width: 100%;
-      gap: 15px;
+      gap: 5px;
+      
    }
 
    .banner .main-links li {
       margin: 0;
       padding: 0;
+   }
+
+   .banner .main-links li:first-child {
+      margin-left: auto;
    }
 
    .banner .main-links li:nth-of-type(5) {
@@ -503,6 +503,17 @@ footer {
       background-color: #feda6a;
    }
      
+}
+
+@media only screen and (min-width: 900px) {
+   .banner {
+      padding: 1em 2em; 
+      font-size: 1rem;
+   }
+
+   .banner .main-links > ul {
+      gap: 10px; 
+   }
 }
 
 
