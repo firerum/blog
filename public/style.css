@@ -80,18 +80,25 @@ p.users {
 .banner {
    width: 100%;
    background-color: #393f4d;
-   padding: 1em 2em;
+   padding: 0 2em;
    color: #feda6a;
 }
 
 .banner-logo {
    position: relative;
    display: flex;
+   padding: 1em;
+   align-items: center;
+}
+
+.banner h1 {
+   margin-bottom: 0;
 }
 
 .banner #toggler {
    position: absolute;
-   top: 5px;
+   top: 50%;
+   transform: translateY(-50%);
    right: 0;
    width: 30px;
    height: 20px;
@@ -102,7 +109,8 @@ p.users {
 
 .banner .hamburger {
    position: absolute;
-   top: 5px;
+   top: 50%;
+   transform: translateY(-50%);
    right: 0;
    width: 30px;
    height: 30px;
